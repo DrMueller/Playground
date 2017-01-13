@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush x:Key="brushBtnDefault" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="#66000088" Offset="0" />
+        <GradientStop Color="#BB000088" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="brushBtnMouseOver" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#55000099" Offset="0" />
+        <GradientStop Color="#AA000088" Offset="1" />
+    </LinearGradientBrush>
+
+    <Style TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid x:Name="grdMain"
+                          Height="30"
+                          Width="80">
+                        <Border x:Name="borderMain"
+                                Background="{StaticResource brushBtnDefault}" />
+
+                        <Grid x:Name="grdMouseUp">
+                            <Border BorderBrush="#49FFFFFF" BorderThickness="2,2,0,0" />
+                            <Border BorderBrush="#49000000" BorderThickness="0,0,2,2" />
+                        </Grid>
+
+                        <Grid x:Name="grdMouseDown" Visibility="Collapsed">
+                            <Border BorderBrush="#49000000" BorderThickness="2,2,0,0" />
+                            <Border BorderBrush="#49FFFFFF" BorderThickness="0,0,2,2" />
+                        </Grid>
+
+                        <Label
+                            x:Name="lblMain"
+                            FontWeight="Bold"
+                            FontSize="14"
+                            Foreground="#DADE8C"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="{TemplateBinding Content}" />
+                    </Grid>
+
+                    <ControlTemplate.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5" />
+                            <Setter Property="Padding" Value="3" />
+                        </Style>
+                    </ControlTemplate.Resources>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="borderMain" Property="Background"
+                                    Value="{StaticResource brushBtnMouseOver}" />
+                            <Setter TargetName="lblMain" Property="Foreground" Value="#E9F22E" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="lblMain" Property="Foreground" Value="#F1C9F2" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="grdMouseDown" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="grdMouseUp" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

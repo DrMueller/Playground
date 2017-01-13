@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:MMU.TextFunctions.GUI.ViewModels.Shell"
+                    xmlns:m="clr-namespace:MMU.TextFunctions.GUI.Model">
+
+    <!--http://www.wpf-tutorial.com/list-controls/itemscontrol/-->
+    <DataTemplate x:Key="ItemsControlTemplate" DataType="{x:Type m:ViewModelCommandList}">
+        <ItemsControl ItemsSource="{Binding}" ItemTemplate="{StaticResource CommandViewModelButtonTemplate}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </DataTemplate>
+</ResourceDictionary>

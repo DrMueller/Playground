@@ -1,0 +1,16 @@
+﻿<Application x:Class="MMU.TextFunctions.GUI.App_Start.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MMU.TextFunctions.GUI.App_Start">
+    <Application.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MMU.TextFunctions.GUI;component/Dictionaries/ViewModelMappingDictionary.xaml" />
+                <ResourceDictionary Source="/MMU.TextFunctions.GUI;component/Dictionaries/NavigationDictionary.xaml" />
+                <ResourceDictionary Source="/MMU.TextFunctions.GUI;component/Dictionaries/MainDictionary.xaml" />
+                <ResourceDictionary Source="/MMU.TextFunctions.GUI;component/Dictionaries/CommandViewModelButtonDictionary.xaml" />
+                <ResourceDictionary Source="/MMU.TextFunctions.GUI;component/Dictionaries/ItemsControlDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+    </Application.Resources>
+</Application>

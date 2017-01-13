@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:MMU.TextFunctions.GUI.ViewModels"
+                    xmlns:v="clr-namespace:MMU.TextFunctions.GUI.Views">
+
+    <DataTemplate DataType="{x:Type vm:ListFunctionsViewModel}">
+        <v:ListFunctionsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:XmlFunctionsViewModel}">
+        <v:XmlFunctionsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:CsvFunctionsViewModel}">
+        <v:CsvFunctionsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:JsonFunctionsViewModel}">
+        <v:JsonFunctionsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:DirectoryFunctionsViewModel}">
+        <v:DirectoryFunctionsView />
+    </DataTemplate>
+                  
+</ResourceDictionary>

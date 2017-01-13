@@ -1,0 +1,21 @@
+﻿<Window x:Class="MMU.WpfFunctionalities.TestWpfUI.SpinningBeachballWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MMU.WpfFunctionalities.TestWpfUI"
+        xmlns:s="clr-namespace:MMU.WpfFunctionalities.Animations;assembly=MMU.WpfFunctionalities"
+        mc:Ignorable="d"
+        x:Name="w"
+        Title="SpinningBeachballWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <s:SpinningBeachball IsSpinning="{Binding DoIt, ElementName=w}" />
+
+        <Button Grid.Row="1" Content="Spin or not" Click="Button_Click" />
+    </Grid>
+</Window>
