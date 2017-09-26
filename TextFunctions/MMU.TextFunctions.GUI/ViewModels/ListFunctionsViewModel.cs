@@ -26,7 +26,8 @@ namespace MMU.TextFunctions.GUI.ViewModels
                 {
                     ToCommaSeperatedListCommand,
                     ToCommaSeperatedStringListCommand,
-                    ToSpaceSeparatedStringCommand
+                    ToSpaceSeparatedStringCommand,
+                    ToCommaAndTabbedDoubleQuoteList
                 };
             }
         }
@@ -63,6 +64,33 @@ namespace MMU.TextFunctions.GUI.ViewModels
                     HandledListFormatAction(FormatToCommaSeperatedStringList);
                 }, () => !string.IsNullOrEmpty(DataText)), "Formats a Tab-Seperated List to a Comma-seperated String-List");
             }
+        }
+
+        private ViewModelCommand ToCommaAndTabbedDoubleQuoteList
+        {
+            get
+            {
+                return new ViewModelCommand("T to Tab-\"s\"'", new ActionCommand(() =>
+                                                                            {
+                                                                                HandledListFormatAction(FormatToCommaAndTabbedDoubleQuoteList);
+                                                                            }, () => !string.IsNullOrEmpty(DataText)), "Formats a Comma-Seperated List to a tabbed and double quoted comma-list");
+            }
+        }
+
+        private void FormatToCommaAndTabbedDoubleQuoteList()
+        {
+            var splitEntries = DataText.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var sb = new StringBuilder();
+
+            foreach (var splitEntry in splitEntries)
+            {
+                sb.Append(", \"");
+                sb.Append(splitEntry);
+                sb.AppendLine("\"");
+            }
+
+            sb.Remove(0, 2);
+            DataText = sb.ToString();
         }
 
         private void HandledListFormatAction(Action action)
