@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  automapper33:
+    image: automapper33
+    build:
+      context: .\AutoMapper33
+      dockerfile: Dockerfile
